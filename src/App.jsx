@@ -1,50 +1,4 @@
-const courseTitle = "React Fundamentals";
-
-function App() {
- 
-  const studentName = "Dorsaf";
-
-  const student = {
-    name: "Dorsaf",
-    age: 21,
-    track: "web dev"
-  };
-
-
-  function sayHello() {
-    return Hello ${studentName}, welcome to React!;
-  }
-
-  return (
-    <div>
-      <h1>My First React App</h1>
-
-      <p>Student name: {studentName}</p>
-
-      <p>Welcome to {courseTitle}, {studentName}!</p>
-
-      <label htmlFor="nameInput">Enter your name:</label>
-      <input type="text" id="nameInput" />
-
-      <h2>Student Info</h2>
-      <p>Name: {student.name}</p>
-      <p>Age: {student.age}</p>
-      <p>Track: {student.track}</p>
-
-      <p>{sayHello()}</p>
-
-      {/* Reflection Answers */}
-      {/*
-        One thing I understand well: How JSX renders variables and functions.
-
-        One mistake I made and fixed: Forgetting to use {} around JavaScript values.
-      */}
-    </div>
-  );
-}
-SESSION 2
-
-const stories = [
+const list = [
   {
     title: "React",
     url: "https://reactjs.org/",
@@ -66,30 +20,49 @@ const stories = [
 function App() {
   return (
     <div>
-      <h1>My Hacker Stories</h1>
-
+      <Header/>
+      <Search/>
       <hr />
-
-      <ul>
-        {stories.map(function (item) {
-          return (
-            <li key={item.objectID}>
-              <span>
-                <a href={item.url}>{item.title}</a>
-              </span>
-              <span> Author: {item.author}</span>
-              <span> Comments: {item.num_comments}</span>
-              <span> Points: {item.points}</span>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
+      <List />
+      </div>
+  ) ;
 }
 
+function Header() {
+    return <h1>My Hacker Stories</h1>;
+}
 
-/* Step 7 – Reflection
-  - map(): Essential for turning data arrays into visual UI elements.
-  - objectID: Best key because it's a permanent, unique ID from the database.
-export default App ;*/
+function Search() {
+    return (
+        <>
+        <label className="search" htmlFor="search"></label>
+        <input id="search" type="text" />
+        </>
+    ) ;
+}
+
+function List (){
+    return (
+        <ul>
+            {list.map(function (item) {
+                return (
+                    <li key={item.objectID}>
+                        <span><a href={item.url}>{item.title}</a></span>
+                        <span> {item.author}</span>
+                        <span> {item.num_comments}</span>
+                        <span> {item.points}</span>
+                    </li>
+                ) ;
+            })}
+        </ul>
+    ) ;
+}
+
+/* Reflection
+     - map(): Essential for rendering lists in React.
+     - objectID: Best key, permanent unique ID.
+     - When using real API, list will come from fetch() instead of hardcoded array.
+*/
+
+export default App;
+
