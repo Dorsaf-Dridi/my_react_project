@@ -1,0 +1,39 @@
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Body ── */
+body {
+  background: linear-gradient(135deg, #ffe6f0, #ffd6f0, #e6d6ff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Georgia', serif;
+}
+
+/* ── Main ── */
+main {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+/* ── Heading ── */
+h1 {
+  font-size: 2rem;
+  color: #c0407a;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px #f9a8d4;
+  letter-spacing: 0.03em;
+}
+
+/* ── Image ── */
+img {
+  width: 380px;
+  max-width: 90vw;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(192, 64, 122, 0.25);
+}
